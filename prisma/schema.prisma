@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Products {
+  id           Int           @id @default(autoincrement())
+  name         String        @db.VarChar(50)
+  color        String[]
+  size         String[]
+  description  String
+  available    Boolean       @default(true)
+  categoriesID Int
+  images       Images[]
+  categories   SubCategories @relation(fields: [categoriesID], references: [id])
+}
+
+model MainCategories {
+  id           Int             @id @default(autoincrement())
+  categories   String
+  subCategorie SubCategories[]
+}
+
+model SubCategories {
+  id              Int            @id @default(autoincrement())
+  subCategorie    String
+  mainCategorieID Int
+  product         Products[]
+  mainCategorie   MainCategories @relation(fields: [mainCategorieID], references: [id])
+}
+
+model Images {
+  id        Int      @id @default(autoincrement())
+  url       String
+  productID Int
+  product   Products @relation(fields: [productID], references: [id])
+}

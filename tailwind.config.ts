@@ -8,8 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        "pinkybg":"#FFF2F2",
+      },
       backgroundImage: {
-
+        bgHome: "url('/fondo.png')",
       },
     },
   },

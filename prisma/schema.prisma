@@ -17,6 +17,7 @@ model Products {
   categoriesID Int
   images       Images[]
   categories   SubCategories @relation(fields: [categoriesID], references: [id])
+  gender       String?
 }
 
 model MainCategories {

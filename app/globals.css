@@ -1,11 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 @layer base {
+  
   body {
       @apply bg-bgHome bg-cover
+  }
+  .submenu-hover{
+    @apply absolute invisible group-hover:visible bg-white w-full font-Poly
+  }
+  .link{
+    @apply link-underline link-underline-black flex flex-row gap-2 font-Poly
   }
   .link-underline {
 		border-bottom-width: 0;
@@ -13,7 +24,7 @@
 		background-size: 0 1px;
 		background-position: 0 100%;
 		background-repeat: no-repeat;
-		transition: background-size .3s ease-in-out;
+		transition: background-size .075s ease-in-out;
 	}
 
 	.link-underline-black {
@@ -24,4 +35,7 @@
 		background-size: 100% 1px;
 		background-position: 0 100%
 	}
+  .arrow-rotate{
+    @apply hover:rotate-180 rotate-180
+  }
 }

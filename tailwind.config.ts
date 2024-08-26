@@ -8,8 +8,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        Poly: ["Poly", "serif"],
+        ButtonBuy: ["Playfair Display SC", "serif"],
+        PriceCard: ["Nunito Sans", "sans-serif"],
+      },
       colors: {
-        "pinkybg":"#FFF2F2",
+        pinkybg: "#FFF2F2",
       },
       backgroundImage: {
         bgHome: "url('/fondo.png')",

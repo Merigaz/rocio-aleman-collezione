@@ -10,7 +10,7 @@
 @layer base {
   
   body {
-      @apply bg-bgHome bg-cover
+      @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat
   }
   .submenu-hover{
     @apply absolute invisible group-hover:visible bg-white w-full font-Poly

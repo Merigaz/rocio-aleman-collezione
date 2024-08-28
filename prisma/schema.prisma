@@ -15,9 +15,10 @@ model Products {
   description  String
   available    Boolean       @default(true)
   categoriesID Int
-  images       Images[]
+  images       String[]
   categories   SubCategories @relation(fields: [categoriesID], references: [id])
   gender       String?
+  tela         String[]      
 }
 
 model MainCategories {
@@ -34,9 +35,3 @@ model SubCategories {
   mainCategorie   MainCategories @relation(fields: [mainCategorieID], references: [id])
 }
 
-model Images {
-  id        Int      @id @default(autoincrement())
-  url       String
-  productID Int
-  product   Products @relation(fields: [productID], references: [id])
-}

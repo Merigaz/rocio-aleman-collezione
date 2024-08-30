@@ -18,7 +18,8 @@ model Products {
   images       String[]
   categories   SubCategories @relation(fields: [categoriesID], references: [id])
   gender       String?
-  tela         String[]      
+  tela         String[]
+  destacado    Boolean       @default(false)
 }
 
 model MainCategories {
@@ -34,4 +35,3 @@ model SubCategories {
   product         Products[]
   mainCategorie   MainCategories @relation(fields: [mainCategorieID], references: [id])
 }
-

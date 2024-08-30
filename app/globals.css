@@ -1,41 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Poly:ital@0;1&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-  
+  .animation-card {
+    @apply overflow-hidden h-0 transition-all duration-300 ease-in-out;
+  }
+
   body {
-      @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat
+    @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat;
   }
-  .submenu-hover{
-    @apply absolute invisible group-hover:visible bg-white w-full font-Poly
+  .submenu-hover {
+    @apply absolute invisible group-hover/nav:visible bg-white w-full font-Poly;
   }
-  .link{
-    @apply link-underline link-underline-black flex flex-row gap-2 font-Poly
+  .link {
+    @apply link-underline link-underline-black flex flex-row gap-2 font-Poly;
   }
   .link-underline {
-		border-bottom-width: 0;
-		background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
-		background-size: 0 1px;
-		background-position: 0 100%;
-		background-repeat: no-repeat;
-		transition: background-size .075s ease-in-out;
-	}
+    border-bottom-width: 0;
+    background-image: linear-gradient(transparent, transparent),
+      linear-gradient(#fff, #fff);
+    background-size: 0 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.075s ease-in-out;
+  }
 
-	.link-underline-black {
-		background-image: linear-gradient(transparent, transparent), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0))
-	}
+  .link-underline-black {
+    background-image: linear-gradient(transparent, transparent),
+      linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
+  }
 
-	.link-underline:hover {
-		background-size: 100% 1px;
-		background-position: 0 100%
-	}
-  .arrow-rotate{
-    @apply hover:rotate-180 rotate-180
+  .link-underline:hover {
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+  .arrow-rotate {
+    @apply hover:rotate-180 rotate-180;
   }
 }

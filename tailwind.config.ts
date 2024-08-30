@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        growRight: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+      },
+      animation: {
+        growRight: "growRight 1s ease-in-out forwards",
+      },
+      boxShadow: {
+        "card-shadow": "2px 2px 2px 0px rgba(0, 0, 0, 0.3)",
+      },
       fontFamily: {
         Poly: ["Poly", "serif"],
         ButtonBuy: ["Playfair Display SC", "serif"],

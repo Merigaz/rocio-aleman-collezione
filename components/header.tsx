@@ -8,7 +8,7 @@ export default function Header() {
       <div className="flex justify-center bg-white text-black font-Poly text-xl">
         Envío gratis a partir de $250.000
       </div>
-      <nav className="flex flex-row justify-between items-center h-24 bg-pinkybg px-12">
+      <nav className="flex flex-row justify-between items-center h-24 bg-pinkybg px-12 drop-shadow-md z-10">
         <Link href={"/"}>
           <Image
             src={"/logo.svg"}

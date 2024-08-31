@@ -18,6 +18,7 @@ const config: Config = {
         growRight: "growRight 1s ease-in-out forwards",
       },
       boxShadow: {
+        "product-shadow": "0px 0px 2px 0px rgba(0, 0, 0, 0.3)",
         "card-shadow": "2px 2px 2px 0px rgba(0, 0, 0, 0.3)",
         "button-wp": "0px 0px 4px 1px rgba(0, 0, 0, 0.3)",
       },

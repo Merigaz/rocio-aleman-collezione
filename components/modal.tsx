@@ -178,7 +178,7 @@ export default function FilterModal(sizes: any, tela: any) {
               >
                 Tela
               </DialogTitle>
-              <div className="grid grid-cols-3 pt-2 gap-2">
+              <div className="grid grid-cols-3 pt-2 pr-6 gap-2">
                 {sizes.tela.map((uniquetela: any) => (
                   <ConfigProvider
                     theme={{
@@ -216,7 +216,7 @@ export default function FilterModal(sizes: any, tela: any) {
               >
                 Talla
               </DialogTitle>
-              <div className="grid grid-cols-3 pt-2 gap-2">
+              <div className="grid grid-cols-3 pt-2 pr-16  gap-2">
                 {sizes.sizes.map((uniquesize: any) => (
                   <ConfigProvider
                     theme={{

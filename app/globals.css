@@ -15,17 +15,17 @@
     @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat;
   }
   .submenu-hover {
-    @apply absolute invisible group-hover/nav:visible bg-white w-full font-Poly;
+    @apply invisible group-hover/nav:visible bg-white w-36 font-Poly flex items-center justify-center text-[#403834] 
   }
   .link {
-    @apply link-underline link-underline-black flex flex-row gap-2 font-Poly;
+    @apply link-underline link-underline-black flex flex-row self-center gap-2 font-Poly w-36;
   }
   .link-underline {
     border-bottom-width: 0;
     background-image: linear-gradient(transparent, transparent),
       linear-gradient(#fff, #fff);
     background-size: 0 1px;
-    background-position: 0 100%;
+    background-position: 50% 90%;
     background-repeat: no-repeat;
     transition: background-size 0.075s ease-in-out;
   }
@@ -36,8 +36,8 @@
   }
 
   .link-underline:hover {
-    background-size: 100% 1px;
-    background-position: 0 100%;
+    background-size: 80% 1px;
+    background-position: 50% 90%;
   }
   .arrow-rotate {
     @apply hover:rotate-180 rotate-180;

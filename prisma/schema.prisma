@@ -8,18 +8,20 @@ datasource db {
 }
 
 model Products {
-  id           Int           @id @default(autoincrement())
-  name         String        @db.VarChar(50)
-  color        String[]
-  size         String[]
-  description  String
-  available    Boolean       @default(true)
-  categoriesID Int
-  images       String[]
-  categories   SubCategories @relation(fields: [categoriesID], references: [id])
-  gender       String?
-  tela         String[]
-  destacado    Boolean       @default(false)
+  id               Int           @id @default(autoincrement())
+  name             String        @db.VarChar(50)
+  color            String[]
+  size             String[]
+  description      String
+  available        Boolean       @default(true)
+  categoriesID     String
+  images           String[]
+  categories       SubCategories @relation(fields: [categoriesID], references: [subCategorie])
+  gender           String?
+  tela             String[]
+  destacado        Boolean       @default(false)
+  mainCategoryName String?
+  price            String?
 }
 
 model MainCategories {
@@ -30,7 +32,7 @@ model MainCategories {
 
 model SubCategories {
   id              Int            @id @default(autoincrement())
-  subCategorie    String
+  subCategorie    String         @unique
   mainCategorieID Int
   product         Products[]
   mainCategorie   MainCategories @relation(fields: [mainCategorieID], references: [id])

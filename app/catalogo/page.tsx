@@ -59,7 +59,6 @@ export default function Catalogo() {
 
   const telauniqueValues = getUniqueValues({ products, key: "tela" });
   console.log(sizesuniqueValues, "sizescatalog");
-
   return (
     <div className="flex flex-col relative pt-6">
       <div className="sticky top-0 z-10 w-20 left-40">
@@ -71,30 +70,30 @@ export default function Catalogo() {
             <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`}>
               <article
                 key={product.id}
-                className="group/card flex flex-col shadow-card-shadow h-[600px] relative"
+                className="group/card flex flex-col shadow-card-shadow h-[620px] relative"
               >
                 <Image
                   alt=""
                   src={"/cinta.png"}
                   width={108}
                   height={108}
-                  quality={100}
+                  quality={90}
                   className="absolute -top-[4px] -right-[2px]"
                 />
 
                 <Image
                   src={`/productos/${product.images[0]}`}
                   alt={product.name}
-                  quality={100}
-                  className="object-cover h-full self-center"
+                  quality={90}
+                  className="object-cover h-[700px] self-center"
                   priority
                   height={700}
                   width={350}
                 />
 
-                <div className="w-full h-[96px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative ">
-                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40">
-                    <h1 className="self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
+                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative ">
+                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40 justify-center">
+                    <h1 className="laptop:line-clamp-1 self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
                     <a className="font-PriceCard font-bold text-2xl text-[#0F0F0F]">
                       $200.000
                     </a>
@@ -105,7 +104,7 @@ export default function Catalogo() {
                       <div className="flex flex-row self-end gap-2">
                         {product.size.length > 0 ? (
                           product.size.map((sizes: any) =>
-                            sizes !== "XXL" ? (
+                            sizes !== "XXL" && sizes !== "XS" ? (
                               <a className="font-Poly flex border border-[#403834] rounded-[4px] text-xs w-5 h-5 justify-center items-center px-1">{`${sizes}`}</a>
                             ) : null
                           )
@@ -122,21 +121,21 @@ export default function Catalogo() {
             <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`}>
               <article
                 key={product.id}
-                className="group/card flex flex-col shadow-card-shadow h-[600px]"
+                className="group/card flex flex-col shadow-card-shadow h-[620px]"
               >
                 <Image
                   src={`/productos/${product.images[0]}`}
                   alt={product.name}
                   quality={100}
-                  className="object-cover h-full self-center static"
+                  className="object-cover h-full self-center static overflow-hidden "
                   priority
                   height={700}
                   width={350}
                 />
 
-                <div className="w-full h-[96px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome ">
-                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40">
-                    <h1 className="self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
+                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative ">
+                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40 justify-center">
+                    <h1 className=" laptop:line-clamp-1 self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
                     <a className="font-PriceCard font-bold text-2xl text-[#0F0F0F]">
                       $200.000
                     </a>
@@ -147,7 +146,7 @@ export default function Catalogo() {
                       <div className="flex flex-row self-end gap-2">
                         {product.size.length > 0 ? (
                           product.size.map((sizes: any) =>
-                            sizes !== "XXL" ? (
+                            sizes !== "XXL" && sizes !== "XS" ? (
                               <a className="font-Poly flex border border-[#403834] rounded-[4px] text-xs w-5 h-5 justify-center items-center px-1">{`${sizes}`}</a>
                             ) : null
                           )

@@ -45,10 +45,10 @@ export default function FilterModal(sizes: any, tela: any) {
 
   return (
     <>
-      <div className="bg-pinkybg w-40 border border-black flex ">
+      <div className="bg-pinkybg w-40 border border-black flex flex-col justify-center items-center ">
         <Button
           onClick={open}
-          className=" w-40 font-Poly text-[#403834] text-2xl  focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-none  flex flex-row gap-2 justify-center"
+          className=" w-40 font-Poly text-[#403834] text-2xl  focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-none  flex flex-row gap-2 justify-center items-center"
         >
           Filtrar
           <Image
@@ -178,7 +178,7 @@ export default function FilterModal(sizes: any, tela: any) {
               >
                 Tela
               </DialogTitle>
-              <div className="grid grid-cols-3 pt-2 pr-6 gap-2">
+              <div className="grid grid-cols-3 pt-2 pr-2 gap-2">
                 {sizes.tela.map((uniquetela: any) => (
                   <ConfigProvider
                     theme={{
@@ -216,7 +216,7 @@ export default function FilterModal(sizes: any, tela: any) {
               >
                 Talla
               </DialogTitle>
-              <div className="grid grid-cols-3 pt-2 pr-16  gap-2">
+              <div className="grid grid-cols-3 pt-2 pr-12  gap-2">
                 {sizes.sizes.map((uniquesize: any) => (
                   <ConfigProvider
                     theme={{

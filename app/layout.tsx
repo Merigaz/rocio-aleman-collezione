@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "./index.css"
 import Header from "@/components/header";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import ContextProvider from "@/utils/createContext";
@@ -27,7 +26,7 @@ export default function RootLayout({
             <Header />
             {children}
             <ButtonWP />
-            <FooterComp/>
+            <FooterComp />
           </ContextProvider>
         </body>
       </AntdRegistry>

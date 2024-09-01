@@ -15,6 +15,7 @@ export async function generateStaticParams() {
 import ButtonCompraWP from "@/components/buttoncompra";
 import { Carousel, ConfigProvider } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 export default async function Page({
   params,
 }: {
@@ -31,34 +32,62 @@ export default async function Page({
   );
 
   const data = await response.json();
-  const arrayData = Object.values(data);
-  console.log(arrayData, "slug");
+
+  const arrayData = [data.product];
+  const nextProductId = data.nextproduct.id;
+  const nextProductMainCategoryName = data.nextproduct.mainCategoryName;
+  const previousProductId = data.previousproduct.id;
+  const previousProductMainCategoryName = data.previousproduct.mainCategoryName;
+  console.log(data.previousproduct.id, "preid");
+
+  const imageStyle = {
+    height: 700,
+    width: 444,
+  };
   return (
     <ConfigProvider
       theme={{
         components: {
           Carousel: {
-            dotHeight: 6,
-            dotWidth: 32,
+            dotHeight: 8,
+            dotWidth: 48,
             arrowSize: 32,
+            colorBgContainer: "#403834",
           },
         },
       }}
     >
-      <main className="pt-12 h-[980px] flex items-start justify-center  backdrop-blur-sm ">
+      <main className="pt-12 h-screen flex items-start justify-center  backdrop-blur-sm ">
         {arrayData.map((element: any) => (
-          <div className="flex justify-center items-center bg-bgHome bg-cover border border-[#403834]/20 shadow-product-shadow w-[780px]">
+          <div className="flex flex-row relative justify-center bg-bgHome h-[740px] bg-cover border border-[#403834]/20 shadow-product-shadow w-[52%] ">
+            <Link
+              href={`/catalogo/${previousProductMainCategoryName}/${previousProductId}`}
+            >
+              <div className="absolute h-full w-[48px] left-0 hover:bg-[#403834] hover:bg-opacity-35  z-10 hover:cursor-pointer border-r border-[#403834] bg-pinkybg opacity-60 border-opacity-20 ">
+                <svg
+                  className="stroke-[#403834] h-[32px] w-[32px] absolute top-1/2 left-2"
+                  aria-hidden="true"
+                  fill="none"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
             <div
               key={element.id}
-              className="flex flex-row gap-8 bg-pinkybg bg-opacity-35 justify-center w-[780px]"
+              className=" relative flex flex-row py-6 gap-8 justify-center bg-pinkybg  bg-opacity-30 w-full h-[740px]"
             >
-              <Carousel
-                autoplay
-                autoplaySpeed={2200}
-                className="w-[402px] flex h-full"
-              >
+              <Carousel autoplay autoplaySpeed={3000} className="w-[450px]">
                 {element.images.map((image: any, index: any) => (
-                  <div key={index} className="h">
+                  <div key={index}>
                     <Image
                       key={index}
                       src={`/productos/${image}`}
@@ -66,7 +95,8 @@ export default async function Page({
                       quality={100}
                       width={402}
                       height={700}
-                      sizes="1280"
+                      style={imageStyle}
+                      priority
                     />
                   </div>
                 ))}
@@ -95,13 +125,13 @@ export default async function Page({
                   <h2 className="font-PriceCard">Colores disponibles</h2>
                   <div className="flex flex-row gap-2 ">
                     {element.color.map((color: any) => (
-                      <a className="font-Poly flex border text-[#403834]   border-[#403834] rounded-[4px] text-sm  w-20 h-6 justify-center items-center px-1">
+                      <a className="font-Poly flex border text-[#403834]   border-[#403834] rounded-[4px] text-sm  w-auto h-6 justify-center items-center px-1">
                         {color}
                       </a>
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col gap-1"    >
+                <div className="flex flex-col gap-1">
                   <h2 className="font-PriceCard">Telas disponibles</h2>
                   <div className="flex flex-row gap-4 ">
                     {element.tela.map((tela: any) => (
@@ -111,11 +141,31 @@ export default async function Page({
                     ))}
                   </div>
                 </div>
-                
-                  <ButtonCompraWP />
-             
+
+                <ButtonCompraWP />
               </div>
             </div>
+            <Link
+              href={`/catalogo/${nextProductMainCategoryName}/${nextProductId}`}
+            >
+              <div className="absolute h-full w-[48px] right-0 hover:bg-[#403834] hover:bg-opacity-35  z-10 hover:cursor-pointer border-l border-[#403834] bg-pinkybg opacity-60 border-opacity-20">
+                <svg
+                  className="stroke-[#403834] h-[32px] w-[32px] absolute top-1/2 right-2"
+                  aria-hidden="true"
+                  fill="none"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
           </div>
         ))}
       </main>

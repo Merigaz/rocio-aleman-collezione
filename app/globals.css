@@ -15,10 +15,13 @@
     @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat;
   }
   .submenu-hover {
-    @apply invisible group-hover/nav:visible bg-white w-36 font-Poly flex items-center justify-center text-[#403834] 
+    @apply invisible group-hover/nav:visible bg-white w-full font-Poly flex items-center justify-center text-[#403834] 
   }
   .link {
-    @apply link-underline link-underline-black flex flex-row self-center gap-2 font-Poly w-36;
+    @apply link-underline link-underline-black flex flex-row self-center gap-2 font-Poly w-full ;
+  }
+  .productline {
+    @apply link-underline link-underline-black
   }
   .link-underline {
     border-bottom-width: 0;

@@ -18,7 +18,7 @@ export default function NavbarModa() {
     setFilterData([...filterData, "vip-Moda"]);
   };
   return (
-    <ul className="text-[#403834] group/nav flex flex-col items-center justify-center w-42 ">
+    <ul className="text-[#403834] group/nav flex flex-col items-center justify-center w-48">
       <li className="text-center w-full h-10 self-center justify-center items-center ">
         <Link
           href={"/catalogo"}
@@ -34,7 +34,7 @@ export default function NavbarModa() {
           />
         </Link>
       </li>
-      <li className="absolute h-10 gap-0 top-full flex flex-col items-start z-10">
+      <li className="absolute h-10 gap-0 top-full flex flex-col items-start z-10 w-48">
       <Link href={"/catalogo"} className="link submenu-hover py-4 text-lg h-full text-[#403834]" onClick={handleClickModaDestacados}>
           Destacados
         </Link>

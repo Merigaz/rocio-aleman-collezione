@@ -13,7 +13,7 @@ export default function CarouselComponent() {
             dotHeight: 14,
             dotWidth: 58,
             arrowSize: 32,
-            colorBgContainer: "#403834",
+            colorBgContainer: "#FFF2F2",
           },
         },
       }}

@@ -40,6 +40,9 @@ const config: Config = {
       colors: {
         pinkybg: "#FFF2F2",
       },
+      width: {
+        '128': '32rem',
+      },
       backgroundImage: {
         bgHome: "url('/fondo.png')",
       },

@@ -5,6 +5,7 @@ import Link from "next/link";
 import getUniqueValues from "@/utils/uniqueValues";
 import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
+import useMediaQuery from "@/utils/useMediaQuery";
 
 export default function Catalogo() {
   const [products, setProducts]: any = useState([]);
@@ -12,8 +13,7 @@ export default function Catalogo() {
   const { productsData } = useContext(ProductsDataContext);
   const { filterData, setFilterData } = useContext(FilterDataContext);
   let filteredElements: any = [];
-  console.log(productsData, "popis");
-  console.log(products, "popis products state");
+ 
   const filteredElementsSet = new Set();
   useEffect(() => {
     if (filterData.length > 0 && productsData.length > 0) {

@@ -91,9 +91,12 @@ export default async function Page({
                       {` ${previousProductName}`}
                     </h2>
                   ) : (
-                    <h2 className="productline font-Poly text-lg text-[#403834]">
-                      {` ${previousProductName} (${previousProductTela}) `}
-                    </h2>
+                    <div className=" flex flex-row items-center gap-2">
+                      <h2 className="productline font-Poly text-lg text-[#403834]">
+                        {` ${previousProductName}  `}
+                      </h2>
+                      <h2 className="font-Poly flex border text-[#403834] border-[#403834] rounded-[4px] px-1 text-md  ">{`${previousProductTela}`}</h2>
+                    </div>
                   )}
                 </div>
               </Link>
@@ -117,14 +120,18 @@ export default async function Page({
                       strokeLinejoin="round"
                     />
                   </svg>
+
                   {nextProductTela == undefined ? (
                     <h2 className="productline font-Poly text-lg text-[#403834]">
                       {` ${nextProductName}`}
                     </h2>
                   ) : (
-                    <h2 className="productline font-Poly text-lg text-[#403834]">
-                      {` (${nextProductTela}) ${nextProductName}  `}
-                    </h2>
+                    <div className=" flex flex-row items-center gap-2">
+                      <h2 className="font-Poly flex border text-[#403834] border-[#403834] rounded-[4px] px-1 text-md  ">{`${nextProductTela}`}</h2>
+                      <h2 className="productline font-Poly text-lg text-[#403834]">
+                        {` ${nextProductName}  `}
+                      </h2>
+                    </div>
                   )}
                 </div>
               </Link>
@@ -133,13 +140,9 @@ export default async function Page({
               key={element.id}
               className=" relative flex flex-row py-6 justify-center bg-pinkybg  bg-opacity-30 w-full h-full"
             >
-              <Carousel
-                autoplay
-                autoplaySpeed={3000}
-                className="w-128"
-              >
+              <Carousel autoplay autoplaySpeed={3000} className="w-128">
                 {element.images.map((image: any, index: any) => (
-                  <div key={index} >
+                  <div key={index}>
                     <Image
                       key={index}
                       src={`/productos/${image}`}

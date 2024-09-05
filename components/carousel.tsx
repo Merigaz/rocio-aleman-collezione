@@ -18,21 +18,33 @@ export default function CarouselComponent() {
         },
       }}
     >
-      <Carousel autoplay autoplaySpeed={2000}>
+      <Carousel
+        autoplay
+        autoplaySpeed={2000}
+        className="overflow-visible"
+      >
         <div>
           <Image
             src={banner1}
             alt="Envío gratis por $250.000"
-            sizes="1980px"
+            width={0}
+            height={0}
             quality={100}
+            objectFit="contain"
+            className="carousel-img"
+            sizes="100%, 100%"
           />
         </div>
         <div>
           <Image
             src={banner2}
             alt="Envío gratis por $250.000"
-            sizes="1980px"
+            width={0}
+            height={0}
             quality={100}
+            objectFit="contain"
+            sizes="100%, 100%"
+            className="carousel-img"
           />
         </div>
         <div className="relative">
@@ -45,8 +57,12 @@ export default function CarouselComponent() {
           <Image
             src={banner3}
             alt="Envío gratis por $250.000"
-            sizes="1980px"
+            width={0}
+            height={0}
             quality={100}
+            objectFit="contain"
+            sizes="100%, 100%"
+            className="carousel-img"
           />
         </div>
       </Carousel>

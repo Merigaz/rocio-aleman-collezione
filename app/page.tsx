@@ -2,9 +2,10 @@
 
 import CarouselComponent from "@/components/carousel";
 import { FilterDataContext } from "@/utils/createContext";
+import useMediaQuery from "@/utils/useMediaQuery";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 export default function Home() {
   const { filterData, setFilterData } = useContext(FilterDataContext);
@@ -17,14 +18,42 @@ export default function Home() {
   const handleClickCatalogo = () => {
     setFilterData([]);
   };
+  const [isClient, setIsClient] = useState(false);
+  const matches = useMediaQuery("(min-width:685px)");
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
   return (
     <main>
-      <CarouselComponent />
+      {isClient ? (
+        matches ? (
+          <CarouselComponent />
+        ) : (
+          <div className="relative">
+            <Image
+              src={"/Banner 3 movil.png"}
+              alt=""
+              quality={100}
+              width={900}
+              height={320}
+            />
+            <Link
+            href={"/catalogo"}
+            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center absolute right-0 bottom-4  font-ButtonBuy font-normal shadow-card-shadow text-sm bg-white w-[140px] h-10"
+          >
+            ¡COMPRA AHORA!
+          </Link>
+          </div>
+        )
+      ) : null}
+
       <div className="flex flex-col items-center justify-center pb-32">
-        <div className="flex flex-row gap-16 items-center justify-center py-16">
+        <div className="lg:cards-vip-home flex flex-col gap-8 my-10 w-[90%]">
+                         
+          
           <article className="relative">
             <Link
-              className=" text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[380px] h-[76px]"
+              className=" lg:btn-vip-moda-lg hover:shadow-none text-[#403834] flex items-center justify-center bg-white font-ButtonBuy tracking-wide font-medium text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
               href={"/catalogo"}
               onClick={handleClickPijamaDestacados}
             >
@@ -40,7 +69,7 @@ export default function Home() {
           </article>
           <article className="relative">
             <Link
-              className=" hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[360px] h-[76px]"
+              className="lg:btn-vip-moda-lg hover:shadow-none text-[#403834] flex items-center justify-center bg-white font-ButtonBuy font-medium tracking-wide text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
               href={"/catalogo"}
               onClick={handleClickModaDestacados}
             >
@@ -55,7 +84,13 @@ export default function Home() {
             />
           </article>
         </div>
-        <Link href={"/catalogo"} className=" text-center hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[700px] h-[76px]" onClick={handleClickCatalogo}>VER CATÁLOGO COMPLETO</Link>
+        <Link
+          href={"/catalogo"}
+          className=" text-center hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[700px] h-[76px]"
+          onClick={handleClickCatalogo}
+        >
+          VER CATÁLOGO COMPLETO
+        </Link>
       </div>
     </main>
   );

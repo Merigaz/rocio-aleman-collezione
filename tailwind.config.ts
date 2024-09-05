@@ -7,15 +7,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+
     extend: {
       screens: {
-        'tablet': '640px',
+        cel: "425px",
+        tablet: "640px",
         // => @media (min-width: 640px) { ... }
-  
-        'laptop': '1440px',
+
+        laptop: "1440px",
         // => @media (min-width: 1024px) { ... }
-  
-        'desktop': '1280px',
+
+        desktop: "1024px",
         // => @media (min-width: 1280px) { ... }
       },
       keyframes: {
@@ -41,7 +43,7 @@ const config: Config = {
         pinkybg: "#FFF2F2",
       },
       width: {
-        '128': '32rem',
+        "128": "32rem",
       },
       backgroundImage: {
         bgHome: "url('/fondo.png')",

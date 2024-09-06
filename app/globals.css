@@ -7,9 +7,8 @@
 @tailwind utilities;
 
 @layer base {
-  .modal-lg{
-@apply
-
+  .animation-btn-cta {
+    @apply transition-all duration-100 scale-110 ease-out;
   }
   .cards-btn-filter-tablet {
     @apply sticky top-0 w-20 left-40;
@@ -18,34 +17,34 @@
     @apply gap-4 px-28 py-4 pb-24;
   }
   .btn-banner3-cel {
-    @apply absolute right-[20px] bottom-4 text-xs h-10 px-1;
+    @apply text-3xl w-24 h-14   px-0;
   }
   .cards-vip-home {
     @apply flex flex-row gap-16 items-center justify-center py-16 w-full;
   }
   .btn-vip-moda-lg {
-    @apply hover:shadow-none text-[#403834] flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[360px] h-[76px];
+    @apply text-[#403834] flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal text-3xl bg-white w-[360px] h-[76px];
   }
   .carousel-img {
-    @apply h-[280px] w-[864px] cel:h-[284px] cel:w-[860px]  lg:h-[700px] lg:w-full;
+    @apply h-[280px] w-[864px] cel:h-[284px] cel:w-[890px]  lg:h-[700px] lg:w-full;
   }
   .nav-hover-sm {
     @apply h-auto w-auto block flex-col p-2 transition-all ease-in-out duration-150;
   }
   .nav-hover-li {
-    @apply h-auto w-auto p-2;
+    @apply h-full w-full border border-[#403834] border-opacity-30 shadow-nav-shadow transition-all duration-100 ease-out cursor-pointer;
   }
   .ul-nav-lg {
     @apply text-[#403834]  flex flex-col items-center justify-center w-32;
   }
   .h1-nav-lg {
-    @apply flex items-center justify-center w-32 link text-lg  text-[#403834] h-full;
+    @apply flex items-center justify-center w-full link text-lg  text-[#403834] h-full;
   }
   .ul-li-nav-lg {
-    @apply relative text-center w-full h-10 self-center justify-center items-center;
+    @apply relative text-center w-full h-10 self-center justify-center items-center border-0 shadow-none;
   }
   .li-link-nav-lg {
-    @apply absolute h-10 p-0 top-full flex flex-col items-center w-32 text-base;
+    @apply absolute h-10 p-0 top-full flex flex-col items-center w-32 text-base border-0;
   }
   .link-li-nav-lg-moda {
     @apply link submenu-hover-moda py-1  w-32 h-auto text-[#403834];
@@ -56,14 +55,18 @@
   .animation-card {
     @apply overflow-hidden h-0 transition-all duration-300 ease-in-out;
   }
+  html {
+    padding-right: 0px !important;
+  }
   body {
-    @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat w-full;
+    padding-right: 0px !important;
+    @apply bg-bgHome min-h-screen max-h-screen bg-cover bg-center bg-repeat w-full p-0;
   }
   .submenu-hover-moda {
-    @apply invisible group-hover/nav-moda:visible bg-white w-full font-Poly flex items-center justify-center text-[#403834] group-active/nav:invisible;
+    @apply invisible group-hover/nav-moda:visible border-x border-[#403834] shadow-nav-shadow border-opacity-30 bg-white w-full font-Poly flex items-start pl-2 text-[#403834];
   }
   .submenu-hover-pijama {
-    @apply invisible group-hover/nav-pijama:visible bg-white w-full font-Poly flex items-center justify-center text-[#403834] group-active/nav:invisible;
+    @apply invisible group-hover/nav-pijama:visible border-x border-[#403834] shadow-nav-shadow border-opacity-30 bg-white w-full font-Poly flex items-start pl-2 text-[#403834];
   }
   .link {
     @apply link-underline link-underline-black flex flex-row text-center gap-2 font-Poly w-full;

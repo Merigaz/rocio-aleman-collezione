@@ -3,7 +3,10 @@
 import { createContext, useEffect, useState } from "react";
 import { PropChildren } from "./interface";
 import getUniqueValues from "./uniqueValues";
-
+export const filterContext = createContext<any>({
+  filter: false,
+  setFilter: () => {},
+});
 export const FilterDataContext = createContext<any>({
   filterData: [],
   setFilterData: () => {},
@@ -25,11 +28,10 @@ const ContextProvider = ({ children }: PropChildren) => {
   const [filterData, setFilterData] = useState<[]>([]);
   const [uniqueSizeData, setUniqueSizeData]: any = useState([]);
   const [categoriesData, setCategoriesData] = useState<[]>([]);
+  const [filter, setFilter] = useState(false);
   useEffect(() => {
     async function fetchProductsData() {
       try {
-       
-
         const products = await fetch("/api/products");
         const categories = await fetch("/api/categories");
         if (!products.ok) {
@@ -55,7 +57,11 @@ const ContextProvider = ({ children }: PropChildren) => {
           <UniqueSizeDataContext.Provider
             value={{ uniqueSizeData, setUniqueSizeData }}
           >
-            {children}
+            <filterContext.Provider
+              value={{ filter, setFilter }}
+            >
+              {children}
+            </filterContext.Provider>
           </UniqueSizeDataContext.Provider>
         </FilterDataContext.Provider>
       </CategoriesDataContext.Provider>

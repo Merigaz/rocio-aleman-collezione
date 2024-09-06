@@ -3,80 +3,52 @@ import Image from "next/image";
 import Link from "next/link";
 import NavbarModa from "./navbarmoda";
 import NavbarPijama from "./navbarpijamas";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useMediaQuery from "@/utils/useMediaQuery";
+import { filterContext } from "@/utils/createContext";
+import ModalNav from "./modalNavMobile";
 
 export default function Header() {
+  const { filter, setFilter } = useContext(filterContext);
   const [isClient, setIsClient] = useState(false);
-  const [isMenuOn, setMenuOn] = useState(false);
   const matches = useMediaQuery("(min-width:1024px)");
   useEffect(() => {
     setIsClient(true);
   }, []);
-const onClick:any = (e:any) => {
-  if (isMenuOn) {
-    setMenuOn(false)
-  } else {
-    setMenuOn (true)
-  }
-}
-
-
-
-
+  const onClick: any = (e: any) => {
+    if (filter) {
+      setFilter(false);
+    } else {
+      setFilter(true);
+    }
+  };
   return (
-    <header className="flex flex-col relative w-full">
-      <div className="flex justify-center bg-white text-black font-Poly text-xl">
+    <header className="flex flex-col relative w-full border-b border-[#403834] border-opacity-5">
+      <div className="flex justify-center bg-white text-black font-Poly text-xl border-b border-[#403834] border-opacity-30">
         Envío gratis a partir de $250.000
       </div>
-      <nav className="tablet:px-2 w-full flex flex-row justify-center lg:justify-between items-center h-24 bg-pinkybg px-12 drop-shadow-md z-20">
+      <nav className="tablet:px-2 w-full flex flex-row justify-center lg:justify-between items-center h-24 bg-pinkybg px-12 drop-shadow-md z-10">
         {isClient ? (
           matches ? (
-            <div className="w-full gap-0  flex flex-row items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-10">
+            <div className="w-full gap-0  flex flex-row items-center justify-center absolute left-1/2 transform -translate-x-1/2 z-40">
               <NavbarPijama />
               <NavbarModa />
               <Link
                 href={"/catalogo"}
-                className="cel:text-lg font-Poly text-xl text-[#403834]"
+                className="ml-2  cel:text-lg font-Poly text-xl text-[#403834]"
               >
                 Catálogo
               </Link>
             </div>
           ) : (
-            <div className="group/nav-sm absolute top-8 left-4 w-auto h-auto">
-              <div
-                onClick={onClick}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
-                  />
-                </svg>
-              </div>
-              {isMenuOn ? (
-                <div className="p-2 bg-white">
-                  <NavbarPijama {...onClick} />
-                  <NavbarModa {...onClick}/>
-                  <Link href={"/catalogo"} className="font-Poly text-base">
-                    Catálogo
-                  </Link>
-                </div>
-              ) : null}
+            <div className="absolute top-8 left-4 w-auto h-auto cursor-pointer">
+              <ModalNav />
             </div>
           )
         ) : null}
         <Link
           href={"/"}
-          className="flex items-center hover:cursor-pointer z-10"
+          className="flex items-center hover:cursor-pointer celsm:mr-6 z-40"
         >
           <div>
             <Image
@@ -87,34 +59,152 @@ const onClick:any = (e:any) => {
               quality={100}
               sizes="100%, 100%"
               objectFit="contain"
-              className="mr-8 tablet:mr-0 w-[280px] h-[80px] tablet:h-24 lg:w-[348px] laptop:w-[444px]"
+              className="mr-8 tablet:mr-0 w-[240px] h-[80px] cel:w-[290px] celsm:w-[260px] tablet:h-24 lg:w-[348px] laptop:w-[444px]"
             />
           </div>
         </Link>
-        <div className="mr-4 flex flex-row w-16 h-16 lg:w-32 lg:h-32 gap-4 items-center absolute right-2 lg:right-0">
+        <div className="mr-4 flex flex-row w-16 h-16 lg:w-32 lg:h-32 gap-4 items-center absolute right-2 lg:right-0 z-40">
           <Link
             href={"https://www.facebook.com/RocioAlemanCollezione/"}
             target="_blank"
+            className="active:animation-btn-cta"
           >
-            <Image
-              src={"/Facebook.svg"}
-              alt="Facebook"
-              quality={100}
-              height={40}
-              width={40}
-            />
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-10"
+            >
+              <path
+                d="M40 20C40 8.95317 31.0468 0 20 0C8.95317 0 0 8.95317 0 20C0 29.9844 7.3125 38.2578 16.875 39.7578V25.7813H11.7968V20H16.875V15.5938C16.875 10.582 19.8594 7.8125 24.4297 7.8125C26.6172 7.8125 28.9062 8.20312 28.9062 8.20312V13.125H26.3828C23.8984 13.125 23.125 14.668 23.125 16.25V20H28.6718L27.7852 25.7813H23.125V39.7578C32.6875 38.2578 40 29.9844 40 20Z"
+                fill="#1877F2"
+              />
+              <path
+                d="M27.7852 25.7812L28.6719 20H23.125V16.25C23.125 14.668 23.8985 13.125 26.3829 13.125H28.9063V8.20312C28.9063 8.20312 26.6172 7.8125 24.4297 7.8125C19.8595 7.8125 16.875 10.582 16.875 15.5937V20H11.7969V25.7812H16.875V39.7578C17.8945 39.918 18.9375 40 20 40C21.0625 40 22.1055 39.918 23.125 39.7578V25.7812H27.7852Z"
+                fill="white"
+              />
+            </svg>
           </Link>
           <Link
             href={"https://www.instagram.com/rocioalemancollezione/"}
             target="_blank"
           >
-            <Image
-              quality={100}
-              src={"/Instagram.svg"}
-              alt="Instagram"
-              height={40}
-              width={40}
-            />
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="size-10"
+            >
+              <path
+                d="M20.0015 0C14.5697 0 13.8881 0.0237504 11.7547 0.120834C9.62552 0.218334 8.17217 0.555417 6.90049 1.05C5.58506 1.56083 4.46921 2.24417 3.35754 3.35625C2.24502 4.46792 1.56168 5.58375 1.04918 6.89875C0.553339 8.17083 0.215836 9.62458 0.120001 11.7529C0.0250003 13.8863 0 14.5683 0 20C0 25.4317 0.0241673 26.1113 0.120835 28.2446C0.218753 30.3738 0.555839 31.8271 1.05001 33.0988C1.56127 34.4142 2.24461 35.53 3.3567 36.6417C4.46796 37.7542 5.58381 38.4392 6.89841 38.95C8.17092 39.4446 9.62469 39.7817 11.7535 39.8792C13.8868 39.9762 14.5681 40 19.9994 40C25.4315 40 26.1111 39.9762 28.2445 39.8792C30.3737 39.7817 31.8287 39.4446 33.1012 38.95C34.4162 38.4392 35.5304 37.7542 36.6416 36.6417C37.7541 35.53 38.4375 34.4142 38.95 33.0992C39.4417 31.8271 39.7792 30.3733 39.8792 28.245C39.975 26.1117 40 25.4317 40 20C40 14.5683 39.975 13.8867 39.8792 11.7533C39.7792 9.62417 39.4417 8.17083 38.95 6.89917C38.4375 5.58375 37.7541 4.46792 36.6416 3.35625C35.5291 2.24375 34.4166 1.56042 33.0999 1.05C31.8249 0.555417 30.3707 0.218334 28.2415 0.120834C26.1082 0.0237504 25.429 0 19.9956 0H20.0015ZM18.2073 3.60417C18.7398 3.60333 19.334 3.60417 20.0015 3.60417C25.3415 3.60417 25.9744 3.62333 28.0832 3.71917C30.0332 3.80833 31.0916 4.13417 31.7966 4.40792C32.7299 4.77042 33.3954 5.20375 34.0949 5.90375C34.7949 6.60375 35.2283 7.27042 35.5916 8.20375C35.8654 8.90792 36.1916 9.96625 36.2804 11.9163C36.3762 14.0246 36.397 14.6579 36.397 19.9954C36.397 25.3329 36.3762 25.9663 36.2804 28.0746C36.1912 30.0246 35.8654 31.0829 35.5916 31.7871C35.2291 32.7204 34.7949 33.385 34.0949 34.0846C33.3949 34.7846 32.7303 35.2179 31.7966 35.5804C31.0924 35.8554 30.0332 36.1804 28.0832 36.2696C25.9749 36.3654 25.3415 36.3862 20.0015 36.3862C14.661 36.3862 14.0281 36.3654 11.9197 36.2696C9.96969 36.1796 8.91134 35.8537 8.20592 35.58C7.27258 35.2175 6.6059 34.7842 5.9059 34.0842C5.20589 33.3842 4.77255 32.7192 4.40921 31.7854C4.13546 31.0813 3.80921 30.0229 3.72046 28.0729C3.62462 25.9646 3.60545 25.3313 3.60545 19.9904C3.60545 14.6496 3.62462 14.0196 3.72046 11.9113C3.80962 9.96125 4.13546 8.90292 4.40921 8.19792C4.77172 7.26458 5.20589 6.59792 5.9059 5.89792C6.6059 5.19792 7.27258 4.76458 8.20592 4.40125C8.91093 4.12625 9.96969 3.80125 11.9197 3.71167C13.7647 3.62833 14.4797 3.60333 18.2073 3.59917V3.60417Z"
+                fill="url(#paint0_radial_709_3519)"
+              />
+              <path
+                d="M30.6344 6.87587C30.1597 6.87587 29.6956 7.01665 29.3009 7.2804C28.9062 7.54415 28.5986 7.91903 28.417 8.35762C28.2354 8.79622 28.1879 9.27882 28.2805 9.74439C28.3732 10.21 28.6019 10.6376 28.9376 10.9732C29.2733 11.3088 29.7011 11.5373 30.1667 11.6299C30.6323 11.7224 31.1149 11.6747 31.5534 11.4929C31.992 11.3112 32.3667 11.0034 32.6303 10.6086C32.894 10.2138 33.0346 9.74975 33.0344 9.27504C33.0344 7.95004 31.9594 6.87504 30.6344 6.87504V6.87587Z"
+                fill="url(#paint1_radial_709_3519)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.9584 9.68004C14.2863 9.68004 9.68751 14.2788 9.68751 19.9509C9.68751 25.623 14.2863 30.2196 19.9584 30.2196C25.6306 30.2196 30.2281 25.623 30.2281 19.9509C30.2281 14.2788 25.6306 9.68004 19.9584 9.68004ZM20 26.5625C23.6244 26.5625 26.5625 23.6244 26.5625 20C26.5625 16.3757 23.6244 13.4375 20 13.4375C16.3756 13.4375 13.4375 16.3757 13.4375 20C13.4375 23.6244 16.3756 26.5625 20 26.5625Z"
+                fill="url(#paint2_radial_709_3519)"
+              />
+              <path
+                d="M20.0015 0C14.5697 0 13.8881 0.0237504 11.7547 0.120834C9.62552 0.218334 8.17217 0.555417 6.90049 1.05C5.58506 1.56083 4.46921 2.24417 3.35754 3.35625C2.24502 4.46792 1.56168 5.58375 1.04918 6.89875C0.553339 8.17083 0.215836 9.62458 0.120001 11.7529C0.0250003 13.8863 0 14.5683 0 20C0 25.4317 0.0241673 26.1113 0.120835 28.2446C0.218753 30.3738 0.555839 31.8271 1.05001 33.0988C1.56127 34.4142 2.24461 35.53 3.3567 36.6417C4.46796 37.7542 5.58381 38.4392 6.89841 38.95C8.17092 39.4446 9.62469 39.7817 11.7535 39.8792C13.8868 39.9762 14.5681 40 19.9994 40C25.4315 40 26.1111 39.9762 28.2445 39.8792C30.3737 39.7817 31.8287 39.4446 33.1012 38.95C34.4162 38.4392 35.5304 37.7542 36.6416 36.6417C37.7541 35.53 38.4375 34.4142 38.95 33.0992C39.4417 31.8271 39.7792 30.3733 39.8792 28.245C39.975 26.1117 40 25.4317 40 20C40 14.5683 39.975 13.8867 39.8792 11.7533C39.7792 9.62417 39.4417 8.17083 38.95 6.89917C38.4375 5.58375 37.7541 4.46792 36.6416 3.35625C35.5291 2.24375 34.4166 1.56042 33.0999 1.05C31.8249 0.555417 30.3707 0.218334 28.2415 0.120834C26.1082 0.0237504 25.429 0 19.9956 0H20.0015ZM18.2073 3.60417C18.7398 3.60333 19.334 3.60417 20.0015 3.60417C25.3415 3.60417 25.9744 3.62333 28.0832 3.71917C30.0332 3.80833 31.0916 4.13417 31.7966 4.40792C32.7299 4.77042 33.3954 5.20375 34.0949 5.90375C34.7949 6.60375 35.2283 7.27042 35.5916 8.20375C35.8654 8.90792 36.1916 9.96625 36.2804 11.9163C36.3762 14.0246 36.397 14.6579 36.397 19.9954C36.397 25.3329 36.3762 25.9663 36.2804 28.0746C36.1912 30.0246 35.8654 31.0829 35.5916 31.7871C35.2291 32.7204 34.7949 33.385 34.0949 34.0846C33.3949 34.7846 32.7303 35.2179 31.7966 35.5804C31.0924 35.8554 30.0332 36.1804 28.0832 36.2696C25.9749 36.3654 25.3415 36.3862 20.0015 36.3862C14.661 36.3862 14.0281 36.3654 11.9197 36.2696C9.96969 36.1796 8.91134 35.8537 8.20592 35.58C7.27258 35.2175 6.6059 34.7842 5.9059 34.0842C5.20589 33.3842 4.77255 32.7192 4.40921 31.7854C4.13546 31.0813 3.80921 30.0229 3.72046 28.0729C3.62462 25.9646 3.60545 25.3313 3.60545 19.9904C3.60545 14.6496 3.62462 14.0196 3.72046 11.9113C3.80962 9.96125 4.13546 8.90292 4.40921 8.19792C4.77172 7.26458 5.20589 6.59792 5.9059 5.89792C6.6059 5.19792 7.27258 4.76458 8.20592 4.40125C8.91093 4.12625 9.96969 3.80125 11.9197 3.71167C13.7647 3.62833 14.4797 3.60333 18.2073 3.59917V3.60417Z"
+                fill="url(#paint3_radial_709_3519)"
+              />
+              <path
+                d="M30.6344 6.87587C30.1597 6.87587 29.6956 7.01665 29.3009 7.2804C28.9062 7.54415 28.5986 7.91903 28.417 8.35762C28.2354 8.79622 28.1879 9.27882 28.2805 9.74439C28.3732 10.21 28.6019 10.6376 28.9376 10.9732C29.2733 11.3088 29.7011 11.5373 30.1667 11.6299C30.6323 11.7224 31.1149 11.6747 31.5534 11.4929C31.992 11.3112 32.3667 11.0034 32.6303 10.6086C32.894 10.2138 33.0346 9.74975 33.0344 9.27504C33.0344 7.95004 31.9594 6.87504 30.6344 6.87504V6.87587Z"
+                fill="url(#paint4_radial_709_3519)"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M19.9584 9.68004C14.2863 9.68004 9.68751 14.2788 9.68751 19.9509C9.68751 25.623 14.2863 30.2196 19.9584 30.2196C25.6306 30.2196 30.2281 25.623 30.2281 19.9509C30.2281 14.2788 25.6306 9.68004 19.9584 9.68004ZM20 26.5625C23.6244 26.5625 26.5625 23.6244 26.5625 20C26.5625 16.3757 23.6244 13.4375 20 13.4375C16.3756 13.4375 13.4375 16.3757 13.4375 20C13.4375 23.6244 16.3756 26.5625 20 26.5625Z"
+                fill="url(#paint5_radial_709_3519)"
+              />
+              <defs>
+                <radialGradient
+                  id="paint0_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(10.6251 43.0808) rotate(-90) scale(39.643 36.8711)"
+                >
+                  <stop stop-color="#FFDD55" />
+                  <stop offset="0.1" stop-color="#FFDD55" />
+                  <stop offset="0.5" stop-color="#FF543E" />
+                  <stop offset="1" stop-color="#C837AB" />
+                </radialGradient>
+                <radialGradient
+                  id="paint1_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(10.6251 43.0808) rotate(-90) scale(39.643 36.8711)"
+                >
+                  <stop stop-color="#FFDD55" />
+                  <stop offset="0.1" stop-color="#FFDD55" />
+                  <stop offset="0.5" stop-color="#FF543E" />
+                  <stop offset="1" stop-color="#C837AB" />
+                </radialGradient>
+                <radialGradient
+                  id="paint2_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(10.6251 43.0808) rotate(-90) scale(39.643 36.8711)"
+                >
+                  <stop stop-color="#FFDD55" />
+                  <stop offset="0.1" stop-color="#FFDD55" />
+                  <stop offset="0.5" stop-color="#FF543E" />
+                  <stop offset="1" stop-color="#C837AB" />
+                </radialGradient>
+                <radialGradient
+                  id="paint3_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-6.70021 2.88153) rotate(78.6806) scale(17.7206 73.0449)"
+                >
+                  <stop stop-color="#3771C8" />
+                  <stop offset="0.128" stop-color="#3771C8" />
+                  <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient
+                  id="paint4_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-6.70021 2.88153) rotate(78.6806) scale(17.7206 73.0449)"
+                >
+                  <stop stop-color="#3771C8" />
+                  <stop offset="0.128" stop-color="#3771C8" />
+                  <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+                </radialGradient>
+                <radialGradient
+                  id="paint5_radial_709_3519"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(-6.70021 2.88153) rotate(78.6806) scale(17.7206 73.0449)"
+                >
+                  <stop stop-color="#3771C8" />
+                  <stop offset="0.128" stop-color="#3771C8" />
+                  <stop offset="1" stop-color="#6600FF" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+            </svg>
           </Link>
         </div>
       </nav>

@@ -29,7 +29,7 @@ export default function Home() {
         matches ? (
           <CarouselComponent />
         ) : (
-          <div className="relative   w-full cel:w-[408px]">
+          <div className="relative   w-full cel:w-[430px]">
             <Image
               src={"/Banner 3 movil.png"}
               alt=""
@@ -42,9 +42,9 @@ export default function Home() {
             />
             <Link
             href={"/catalogo"}
-            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center  font-ButtonBuy absolute right-[4px] px-1 bottom-4 shadow-card-shadow text-sm h-6 bg-white cel:btn-banner3-cel "
+            className="active:animation-cta-carousel-sm active:animation-btn-cta text-[#403834]  border border-[#403834] border-opacity-15  flex tracking-wide items-center justify-center  font-ButtonBuy absolute  celsm:right-[10px] px-1 bottom-4 shadow-card-shadow celxs:h-6 celxs:w-28 celxs:text-lg celxs:right-[8px] bg-white cel:right-[18px] cel:btn-banner3-cel "
           >
-            ¡COMPRA AHORA!
+            ¡COMPRAR!
           </Link>
           </div>
         )
@@ -56,7 +56,7 @@ export default function Home() {
           
           <article className="relative">
             <Link
-              className=" lg:btn-vip-moda-lg hover:shadow-none text-[#403834] flex items-center justify-center bg-white font-ButtonBuy tracking-wide font-medium text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
+              className="active:shadow-none active:animation-btn-cta lg:btn-vip-moda-lg shadow-card-shadow border border-[#403834] border-opacity-30 text-[#403834] flex items-center justify-center bg-white font-ButtonBuy tracking-wide font-medium text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
               href={"/catalogo"}
               onClick={handleClickPijamaDestacados}
             >
@@ -72,7 +72,7 @@ export default function Home() {
           </article>
           <article className="relative">
             <Link
-              className="lg:btn-vip-moda-lg hover:shadow-none text-[#403834] flex items-center justify-center bg-white font-ButtonBuy font-medium tracking-wide text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
+              className="lg:btn-vip-moda-lg active:shadow-none active:animation-btn-cta shadow-card-shadow border border-[#403834] border-opacity-30 text-[#403834] flex items-center justify-center bg-white font-ButtonBuy font-medium tracking-wide text-xl absolute top-8  left-1/2 transform -translate-x-1/2 w-[268px] h-12 "
               href={"/catalogo"}
               onClick={handleClickModaDestacados}
             >
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
         <Link
           href={"/catalogo"}
-          className=" text-center hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow w-[80%] h-12 text-lg lg:text-3xl bg-white lg:w-[700px] lg:h-[76px]"
+          className=" text-center active:shadow-none active:animation-btn-cta border border-[#403834] border-opacity-30 text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow w-[80%] h-12 text-lg lg:text-3xl bg-white lg:w-[700px] lg:h-[76px]"
           onClick={handleClickCatalogo}
         >
           VER CATÁLOGO COMPLETO

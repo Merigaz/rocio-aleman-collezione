@@ -6,11 +6,12 @@ export default function ButtonWP() {
   const pathname = usePathname();
   if (pathname == "/" || pathname == "/catalogo") {
     return (
-      <div className="bottom-16 right-8 fixed rounded-full shadow-button-wp hover:shadow-none">
+      <div className="bottom-16 right-8 fixed rounded-full shadow-button-wp active:shadow-none">
         <Link href={"https://wa.me/+573014231174"} target="_blank">
           <svg
+          className="size-16 lg:size-[90px] active:animation-btn-cta"
             width="86"
-            height="86  "
+            height="86"
             viewBox="0 0 100 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

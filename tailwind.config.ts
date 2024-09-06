@@ -7,19 +7,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-
     extend: {
       screens: {
-        celxs: "325px",
+        celxs: "375px",
+        celsm: "390px",
         cel: "425px",
         tablet: "640px",
-        // => @media (min-width: 640px) { ... }
 
         laptop: "1440px",
-        // => @media (min-width: 1024px) { ... }
 
         desktop: "1024px",
-        // => @media (min-width: 1280px) { ... }
+
         desktopxl: "1690px",
       },
       keyframes: {
@@ -27,13 +25,19 @@ const config: Config = {
           "0%": { width: "0%" },
           "100%": { width: "100%" },
         },
+        slideIn: {
+          "0%": { opacity: "0", transform: "translateX(100%)" },
+          "100%": { opacity: "1", transform: "translateX(0)" }
+        }
       },
       animation: {
+        slideIn: "slideIn .25s ease-in-out forwards var(--delay, 0)",
         growRight: "growRight 1s ease-in-out forwards",
       },
       boxShadow: {
         "product-shadow": "0px 0px 2px 0px rgba(0, 0, 0, 0.3)",
         "card-shadow": "2px 2px 2px 0px rgba(0, 0, 0, 0.3)",
+        "nav-shadow": "0px 2px 2px 0px rgba(0, 0, 0, 0.3)",
         "button-wp": "0px 0px 4px 1px rgba(0, 0, 0, 0.3)",
       },
       fontFamily: {

@@ -60,18 +60,21 @@ export default function Catalogo() {
   const telauniqueValues = getUniqueValues({ products, key: "tela" });
   console.log(sizesuniqueValues, "sizescatalog");
   return (
-    <div className="flex flex-col relative pt-6">
-      <div className="sticky top-0  w-16 left-[24px] z-10 tablet:cards-btn-filter-tablet">
+   
+      
+      <main className="relative z-0">
+      <div className="lg:left-[110px] sticky top-0  w-16 left-[24px] tablet:left-[0px] z-10 tablet:cards-btn-filter-tablet my-4">
         <FilterModal sizes={sizesuniqueValues} tela={telauniqueValues} />
       </div>
-      <main className="flex flex-col tablet:grid tablet:grid-cols-3 desktop:grid desktop:grid-cols-3 gap-4 laptop:grid laptop:grid-cols-5 laptop:cards-catalog-lg ">
+       <div className="flex flex-col items-center justify-center tablet:grid tablet:grid-cols-3 desktop:grid desktop:grid-cols-3 gap-4 laptop:grid laptop:grid-cols-5 laptop:cards-catalog-lg z-0">
+
         {products.map((product: any) =>
           product.destacado == true ? (
-            <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`}>
+            <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`} className="cursor-pointer ">
               <article
                 key={product.id}
-                className="group/card flex flex-col shadow-card-shadow h-[620px] relative"
-              >
+                className="group/card active:shadow-none flex flex-col shadow-card-shadow h-[680px] tablet:w-[250px] celsm:w-[350px] lg:w-auto relative  "
+                >
                 <Image
                   alt=""
                   src={"/cinta.png"}
@@ -79,20 +82,20 @@ export default function Catalogo() {
                   height={108}
                   quality={90}
                   className="absolute -top-[4px] -right-[2px]"
-                />
+                  />
 
                 <Image
                   src={`/productos/${product.images[0]}`}
                   alt={product.name}
                   quality={90}
-                  className="object-cover h-[700px] self-center"
+                  className="object-cover h-[680px] self-center"
                   priority
                   height={700}
                   width={350}
-                />
+                  />
 
-                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative ">
-                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40 justify-center">
+                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative border-l border-b border-[#403834] border-opacity-30 ">
+                  <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40 justify-center ">
                     <h1 className="laptop:line-clamp-1 self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
                     <a className="font-PriceCard font-bold text-2xl text-[#0F0F0F]">
                       $200.000
@@ -121,19 +124,19 @@ export default function Catalogo() {
             <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`}>
               <article
                 key={product.id}
-                className="group/card flex flex-col shadow-card-shadow h-[620px]"
-              >
+                className="group/card active:shadow-none flex flex-col shadow-card-shadow h-[680px] celsm:w-[350px]  tablet:w-[250px] lg:w-auto relative cursor-pointer"
+                >
                 <Image
                   src={`/productos/${product.images[0]}`}
                   alt={product.name}
-                  quality={100}
-                  className="object-cover h-full self-center static overflow-hidden "
+                  quality={90}
+                  className="object-cover h-[680px] self-center "
                   priority
                   height={700}
                   width={350}
-                />
+                  />
 
-                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative ">
+                <div className="w-full h-[126px] self-center flex flex-col  group-hover/card:animation-card bg-bgHome relative border-l border-b border-[#403834] border-opacity-30 ">
                   <div className="flex flex-col bg-pinkybg h-full w-full px-4 pb-2 bg-opacity-40 justify-center">
                     <h1 className=" laptop:line-clamp-1 self-start font-Poly text-md font-normal text-[#403834]">{`${product.name}`}</h1>
                     <a className="font-PriceCard font-bold text-2xl text-[#0F0F0F]">
@@ -161,7 +164,8 @@ export default function Catalogo() {
             </Link>
           )
         )}
+        </div>
       </main>
-    </div>
+    
   );
 }

@@ -8,7 +8,7 @@ export default function FooterComp() {
   const pathname = usePathname();
   if (pathname == "/" || pathname == "/catalogo") {
     return (
-      <div className="flex flex-col tablet:flex-col items-center justify-center w-full">
+      <div className="mt-16 flex flex-col tablet:flex-col items-center justify-center w-full">
         <h1 className="text-5xl font-medium font-ButtonBuy pb-24">
           Contáctanos
         </h1>
@@ -17,10 +17,6 @@ export default function FooterComp() {
           <div className="flex flex-col font-Poly ">
             <a className="text-[#403834] text-2xl">Contacto</a>
             <a className="text-[#CB9F87] text-xl">+57 301 423 1174</a>
-          </div>
-          <div className="flex flex-col font-Poly text-xl">
-            <a className="text-[#403834]text-2xl">Nestra tienda física</a>
-            <a className="text-[#CB9F87] text-xl">Carrera 0#0</a>
           </div>
           <div className="flex flex-col tablet:flex-col gap-4 font-Poly text-2xl">
             <a className="text-[#403834]">Redes Sociales</a>

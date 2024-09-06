@@ -45,39 +45,47 @@ export default function FilterModal(sizes: any, tela: any) {
 
   return (
     <>
-      <div className="bg-pinkybg w-40 border border-black flex flex-col justify-center items-center ">
+      <div className="bg-pinkybg w-40 border border-[#403834] border-opacity-35 flex flex-col justify-center items-center shadow-card-shadow">
         <Button
           onClick={open}
-          className=" w-40 font-Poly text-[#403834] text-2xl  focus:outline-none data-[hover]:bg-white/30 data-[focus]:outline-1 data-[focus]:outline-none  flex flex-row gap-2 justify-center items-center"
+          className=" w-40 font-Poly text-[#403834] text-2xl data-[hover]:bg-white/30   flex flex-row gap-2 justify-center items-center active:shadow-none active:animation-btn-cta"
         >
           Filtrar
-          <Image
-            alt="Icono filtro"
-            src={"/settings.svg"}
-            width={24}
-            height={24}
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            className="size-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M6 13.5V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 0 1 0 3m0-3a1.5 1.5 0 0 0 0 3m0 9.75V10.5"
+            />
+          </svg>
         </Button>
       </div>
 
       <Dialog
         open={isOpen}
         as="div"
-        className="relative z-20 focus:outline-none p-0"
+        className="relative z-20 p-0"
         onClose={close}
       >
         <div className="fixed inset-0 z-40 w-screen">
           <div className="flex h-screen  bg-white/5 backdrop-blur-sm">
             <DialogPanel
               transition
-              className="w-[80%] tablet:w-[44%] lg:w-[32%] flex flex-col h-screen pl-8 pt-4 bg-bgHome bg-cover duration-75 ease-in data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+              className="w-[80%] tablet:w-[44%] lg:w-[20%] flex flex-col h-screen pl-8 pt-4 bg-bgHome bg-cover transition duration-300 ease-in-out data-[closed]:-translate-x-[400px]  border-r border-opacity-5 shadow-card-shadow border-[#403834]"
             >
               <Button
                 className="pr-10 pt-4 self-end w-20 font-Poly h-20"
                 onClick={close}
               >
                 <svg
-                 className="stroke-[#403834]"
+                  className="stroke-[#403834]"
                   aria-hidden="true"
                   fill="none"
                   strokeWidth={1.5}
@@ -123,8 +131,10 @@ export default function FilterModal(sizes: any, tela: any) {
                       <Checkbox
                         onChange={(e) =>
                           handleCheckboxChange(e, `vip-${category.categories}`)
+                        
                         }
                         value={`vip-${category.categories}`}
+                        onClick={close}
                         checked
                       >
                         Destacados
@@ -135,6 +145,7 @@ export default function FilterModal(sizes: any, tela: any) {
                           handleCheckboxChange(e, `vip-${category.categories}`)
                         }
                         value={`vip-${category.categories}`}
+                        onClick={close}
                       >
                         Destacados
                       </Checkbox>
@@ -147,6 +158,7 @@ export default function FilterModal(sizes: any, tela: any) {
                             onChange={(e) =>
                               handleCheckboxChange(e, subcategory.subCategorie)
                             }
+                            onClick={close}
                             checked
                           >
                             {subcategory.subCategorie}
@@ -157,6 +169,7 @@ export default function FilterModal(sizes: any, tela: any) {
                               handleCheckboxChange(e, subcategory.subCategorie)
                             }
                             value={subcategory.subCategorie}
+                            onClick={close}
                           >
                             {subcategory.subCategorie}
                           </Checkbox>
@@ -195,6 +208,7 @@ export default function FilterModal(sizes: any, tela: any) {
                     {filterData.includes(uniquetela) ? (
                       <Checkbox
                         onChange={(e) => handleCheckboxChange(e, uniquetela)}
+                        onClick={close}
                         checked
                       >
                         {uniquetela}
@@ -202,6 +216,7 @@ export default function FilterModal(sizes: any, tela: any) {
                     ) : (
                       <Checkbox
                         onChange={(e) => handleCheckboxChange(e, uniquetela)}
+                        onClick={close}
                         value={uniquetela}
                       >
                         {uniquetela}
@@ -234,6 +249,7 @@ export default function FilterModal(sizes: any, tela: any) {
                     {filterData.includes(uniquesize) ? (
                       <Checkbox
                         onChange={(e) => handleCheckboxChange(e, uniquesize)}
+                        onClick={close}
                         checked
                       >
                         {uniquesize}
@@ -241,6 +257,7 @@ export default function FilterModal(sizes: any, tela: any) {
                     ) : (
                       <Checkbox
                         onChange={(e) => handleCheckboxChange(e, uniquesize)}
+                        onClick={close}
                         value={uniquesize}
                       >
                         {uniquesize}

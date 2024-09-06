@@ -48,7 +48,7 @@ export default function FilterModal(sizes: any, tela: any) {
       <div className="bg-pinkybg w-40 border border-black flex flex-col justify-center items-center ">
         <Button
           onClick={open}
-          className=" w-40 font-Poly text-[#403834] text-2xl  focus:outline-none data-[hover]:bg-black/30 data-[focus]:outline-1 data-[focus]:outline-none  flex flex-row gap-2 justify-center items-center"
+          className=" w-40 font-Poly text-[#403834] text-2xl  focus:outline-none data-[hover]:bg-white/30 data-[focus]:outline-1 data-[focus]:outline-none  flex flex-row gap-2 justify-center items-center"
         >
           Filtrar
           <Image
@@ -63,14 +63,14 @@ export default function FilterModal(sizes: any, tela: any) {
       <Dialog
         open={isOpen}
         as="div"
-        className="relative z-10 focus:outline-none p-0"
+        className="relative z-20 focus:outline-none p-0"
         onClose={close}
       >
-        <div className="fixed inset-0 z-10 w-screen">
+        <div className="fixed inset-0 z-40 w-screen">
           <div className="flex h-screen  bg-white/5 backdrop-blur-sm">
             <DialogPanel
               transition
-              className="w-1/6 flex flex-col h-screen pl-8 pt-4 bg-bgHome bg-cover duration-75 ease-in data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+              className="w-[80%] tablet:w-[44%] lg:w-[32%] flex flex-col h-screen pl-8 pt-4 bg-bgHome bg-cover duration-75 ease-in data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             >
               <Button
                 className="pr-10 pt-4 self-end w-20 font-Poly h-20"

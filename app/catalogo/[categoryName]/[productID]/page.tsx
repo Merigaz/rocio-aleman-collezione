@@ -62,15 +62,15 @@ export default async function Page({
         },
       }}
     >
-      <main className="pt-12 h-screen flex items-start justify-center  backdrop-blur-sm ">
+      <main className="pt-12 h-auto w-screen lg:h-full flex items-start justify-center  backdrop-blur-sm ">
         {arrayData.map((element: any) => (
-          <div className="flex flex-col relative bg-bgHome items-stretch h-[86%] bg-cover border border-[#403834]/20 shadow-product-shadow w-[56%] ">
-            <div className=" flex flex-row w-full">
+          <div className="flex flex-col relative bg-bgHome items-stretch bg-cover border border-[#403834]/20 shadow-product-shadow h-full w-screen lg:h-[86%]  lg:w-[88%] laptop:w-[70%] desktopxl:w-[50%] ">
+            <div className="lg:flex lg:flex-row w-full">
               <Link
                 href={`/catalogo/${previousProductMainCategoryName}/${previousProductId}`}
                 className="w-full "
               >
-                <div className=" flex flex-row items-center  w-full hover:bg-[#403834] hover:bg-opacity-35  z-10 hover:cursor-pointer border-b border-r border-[#403834] bg-pinkybg opacity-60 border-opacity-20 ">
+                <div className="absolute bottom-0 flex lg:flex-row lg:items-center  w-full hover:bg-[#403834] hover:bg-opacity-35  z-10 hover:cursor-pointer border-t lg:border-b lg:border-r lg:border-t-0 border-[#403834] bg-pinkybg opacity-60 border-opacity-20 lg:static lg:bottom-auto ">
                   <svg
                     className="stroke-[#403834] h-[32px] w-[32px]"
                     aria-hidden="true"
@@ -138,33 +138,39 @@ export default async function Page({
             </div>
             <div
               key={element.id}
-              className=" relative flex flex-row py-6 justify-center bg-pinkybg  bg-opacity-30 w-full h-full"
+              className=" relative flex flex-col gap-4 lg:flex-row py-6 items-center justify-center bg-pinkybg  bg-opacity-30 w-full h-full"
             >
-              <Carousel autoplay autoplaySpeed={3000} className="w-128">
+              
+
+              <Carousel autoplay autoplaySpeed={3000} className="w-screen h-[540px] tablet:h-[840px] lg:w-[440px] lg:h-[600px] pb-4 overflow-hidden">
                 {element.images.map((image: any, index: any) => (
-                  <div key={index}>
+                  <div key={index} className="" >
                     <Image
                       key={index}
                       src={`/productos/${image}`}
                       alt={image.altText || `Image ${index + 1}`}
-                      quality={80}
-                      width={402}
-                      height={700}
-                      style={imageStyle}
+                      width={0}
+                      height={0}
+                      quality={100}
+                      objectFit="contain"
+                      className="w-full object-contain"
+                      sizes="100%, 100%"
                       priority
-                    />
+                      />
                   </div>
                 ))}
               </Carousel>
-              <div className="flex flex-col relative gap-12">
-                <div className=" flex flex-col gap-2">
+              
+          
+              <div className="pl-4 flex flex-col items-start justify-center relative gap-12 pb-4">
+                <div className="flex flex-col gap-2 items-start">
                   <h2 className="text-6xl font-Poly text-[#403834]">
                     {element.price}
                   </h2>
                   <h1 className="text-3xl font-Poly text-[#403834] ">
                     {element.name}
                   </h1>
-                  <p className=" pt-4 text-left font-PriceCard w-[270px] text-lg leading-[22px] text-balance whitespace-normal text-[#403834]">
+                  <p className="pt-4 font-PriceCard w-full text-lg leading-[22px] text-balance whitespace-normal text-[#403834]">
                     {element.description}
                   </p>
                 </div>

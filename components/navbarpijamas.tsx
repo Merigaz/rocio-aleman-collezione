@@ -13,11 +13,12 @@ export default function NavbarPijama(onClicK:any) {
     onClicK()
   };
   const handleClickSeda = () => {
-    setFilterData([...filterData, "Seda"]);
+    setFilterData([...filterData, "Seda pijama"]);
+    console.log (filterData, "seda")
     onClicK()
   };
   const handleClickAlgodon = () => {
-    setFilterData([...filterData, "Algodón"]);
+    setFilterData([...filterData, "Algodón pijama"]);
     onClicK()
   };
   const handleClickDurazno = () => {

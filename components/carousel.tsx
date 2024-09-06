@@ -50,7 +50,7 @@ export default function CarouselComponent() {
         <div className="relative">
           <Link
             href={"/catalogo"}
-            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center absolute bottom-16  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-2xl bg-white w-[260px] h-[76px]"
+            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center absolute bottom-16  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-2xl bg-white tablet:w-[147px] tablet:h-[36px] tablet:text-base tablet:bottom-8 w-[260px] h-[76px]"
           >
             ¡COMPRA AHORA!
           </Link>

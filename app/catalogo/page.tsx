@@ -61,10 +61,10 @@ export default function Catalogo() {
   console.log(sizesuniqueValues, "sizescatalog");
   return (
     <div className="flex flex-col relative pt-6">
-      <div className="sticky top-0 z-10 w-20 left-40">
+      <div className="sticky top-0  w-16 left-[24px] z-10 tablet:cards-btn-filter-tablet">
         <FilterModal sizes={sizesuniqueValues} tela={telauniqueValues} />
       </div>
-      <main className="grid grid-cols-5 gap-4 px-40 py-4 pb-24  ">
+      <main className="flex flex-col tablet:grid tablet:grid-cols-3 desktop:grid desktop:grid-cols-3 gap-4 laptop:grid laptop:grid-cols-5 laptop:cards-catalog-lg ">
         {products.map((product: any) =>
           product.destacado == true ? (
             <Link href={`/catalogo/${product.mainCategoryName}/${product.id}`}>

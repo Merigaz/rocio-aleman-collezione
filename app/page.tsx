@@ -29,17 +29,20 @@ export default function Home() {
         matches ? (
           <CarouselComponent />
         ) : (
-          <div className="relative">
+          <div className="relative   w-full cel:w-[408px]">
             <Image
               src={"/Banner 3 movil.png"}
               alt=""
+              width={0}
+              height={0}
               quality={100}
-              width={900}
-              height={320}
+              objectFit="cover"
+              className="carousel-img"
+              sizes="100%, 100%"
             />
             <Link
             href={"/catalogo"}
-            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center absolute right-0 bottom-4  font-ButtonBuy font-normal shadow-card-shadow text-sm bg-white w-[140px] h-10"
+            className="text-[#403834] hover:text-[#403834] hover:shadow-none flex tracking-wide items-center justify-center  font-ButtonBuy absolute right-[4px] px-1 bottom-4 shadow-card-shadow text-sm h-6 bg-white cel:btn-banner3-cel "
           >
             ¡COMPRA AHORA!
           </Link>
@@ -86,7 +89,7 @@ export default function Home() {
         </div>
         <Link
           href={"/catalogo"}
-          className=" text-center hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[700px] h-[76px]"
+          className=" text-center hover:shadow-none   text-[#403834] flex tracking-wide items-center justify-center font-ButtonBuy font-normal shadow-card-shadow w-[80%] h-12 text-lg lg:text-3xl bg-white lg:w-[700px] lg:h-[76px]"
           onClick={handleClickCatalogo}
         >
           VER CATÁLOGO COMPLETO

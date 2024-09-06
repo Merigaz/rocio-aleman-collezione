@@ -76,7 +76,7 @@ const onClick:any = (e:any) => {
         ) : null}
         <Link
           href={"/"}
-          className="flex items-center hover:cursor-pointer z-20"
+          className="flex items-center hover:cursor-pointer z-10"
         >
           <div>
             <Image
@@ -87,11 +87,11 @@ const onClick:any = (e:any) => {
               quality={100}
               sizes="100%, 100%"
               objectFit="contain"
-              className="w-[280px] h-[80px] tablet:h-24 lg:w-[348px] laptop:w-[444px]"
+              className="mr-8 tablet:mr-0 w-[280px] h-[80px] tablet:h-24 lg:w-[348px] laptop:w-[444px]"
             />
           </div>
         </Link>
-        <div className="flex flex-row w-16 h-16 gap-4 items-center absolute right-2 lg:right-0">
+        <div className="mr-4 flex flex-row w-16 h-16 lg:w-32 lg:h-32 gap-4 items-center absolute right-2 lg:right-0">
           <Link
             href={"https://www.facebook.com/RocioAlemanCollezione/"}
             target="_blank"

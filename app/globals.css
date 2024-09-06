@@ -7,23 +7,36 @@
 @tailwind utilities;
 
 @layer base {
-  .cards-vip-home{
-    @apply flex flex-row gap-16 items-center justify-center py-16 w-full
+  .modal-lg{
+@apply
+
+  }
+  .cards-btn-filter-tablet {
+    @apply sticky top-0 w-20 left-40;
+  }
+  .cards-catalog-lg {
+    @apply gap-4 px-28 py-4 pb-24;
+  }
+  .btn-banner3-cel {
+    @apply absolute right-[20px] bottom-4 text-xs h-10 px-1;
+  }
+  .cards-vip-home {
+    @apply flex flex-row gap-16 items-center justify-center py-16 w-full;
   }
   .btn-vip-moda-lg {
-    @apply  hover:shadow-none text-[#403834] flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[360px] h-[76px]
+    @apply hover:shadow-none text-[#403834] flex tracking-wide items-center justify-center absolute top-8  left-1/2 transform -translate-x-1/2 font-ButtonBuy font-normal shadow-card-shadow text-3xl bg-white w-[360px] h-[76px];
   }
-  .carousel-img{
-    @apply h-[420px] w-[864px]
+  .carousel-img {
+    @apply h-[280px] w-[864px] cel:h-[284px] cel:w-[860px]  lg:h-[700px] lg:w-full;
   }
   .nav-hover-sm {
-    @apply h-auto w-auto block flex-col p-2 transition-all ease-in-out duration-150
+    @apply h-auto w-auto block flex-col p-2 transition-all ease-in-out duration-150;
   }
   .nav-hover-li {
-    @apply h-auto w-auto p-2
+    @apply h-auto w-auto p-2;
   }
   .ul-nav-lg {
-    @apply text-[#403834]  flex flex-col items-center justify-center w-32 
+    @apply text-[#403834]  flex flex-col items-center justify-center w-32;
   }
   .h1-nav-lg {
     @apply flex items-center justify-center w-32 link text-lg  text-[#403834] h-full;
@@ -35,10 +48,10 @@
     @apply absolute h-10 p-0 top-full flex flex-col items-center w-32 text-base;
   }
   .link-li-nav-lg-moda {
-    @apply link submenu-hover-moda py-1  w-32 h-auto text-[#403834] 
+    @apply link submenu-hover-moda py-1  w-32 h-auto text-[#403834];
   }
   .link-li-nav-lg-pijama {
-    @apply link submenu-hover-pijama py-1 w-32  h-auto text-[#403834] 
+    @apply link submenu-hover-pijama py-1 w-32  h-auto text-[#403834];
   }
   .animation-card {
     @apply overflow-hidden h-0 transition-all duration-300 ease-in-out;

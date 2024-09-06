@@ -10,6 +10,7 @@ const config: Config = {
 
     extend: {
       screens: {
+        celxs: "325px",
         cel: "425px",
         tablet: "640px",
         // => @media (min-width: 640px) { ... }
@@ -19,6 +20,7 @@ const config: Config = {
 
         desktop: "1024px",
         // => @media (min-width: 1280px) { ... }
+        desktopxl: "1690px",
       },
       keyframes: {
         growRight: {
